@@ -90,3 +90,13 @@ Project structure
 - Lesson results, learning rate
 - Daily goal persistence via `localStorage`
 ---
+Implementation details
+Pseudo-word generation
+
+Words are generated from a small set of syllables:
+```
+const syllables = [
+  "ka", "te", "lo", "mi", "su", "ra", "ve", "ni", "do", "fi",
+  "la", "po", "re", "gi", "ta", "na", "si", "co", "lu", "za"
+]; 
+```
