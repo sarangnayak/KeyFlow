@@ -6,9 +6,7 @@ Built with plain HTML, CSS and JavaScript. No frameworks, no AI, no backend.
 The goal of this project is to recreate the feel of keybr’s lesson screen:
 pseudo-word stream, per-key heatmap, clean dark UI, and simple learning
 metrics you can actually read.
-
-
-
+---
 ## Features
 
 - **Keybr-like UI**
@@ -38,18 +36,14 @@ metrics you can actually read.
   - Layout scales down for smaller screens
 - **No build step**
   - Just open `index.html` in a browser
-
-
-
+---
 ## Tech stack
 
 - HTML5
 - CSS3 (no preprocessors, no frameworks)
 - Vanilla JavaScript (ES6+)
 - `localStorage` for daily goal tracking
-
-
-
+---
 ## Getting started
 
 Clone the repo:
@@ -58,3 +52,14 @@ Clone the repo:
 git clone https://github.com/<your-username>/keybr-style-typing-trainer.git
 cd keybr-style-typing-trainer
 ```
+Run it locally:
+
+Option 1: double-click index.html and open it in your browser.
+
+Option 2 (recommended): serve it with a tiny static server, e.g.:
+
+# Python 3
+python -m http.server 8000
+# then visit http://localhost:8000
+
+No additional setup is required.
