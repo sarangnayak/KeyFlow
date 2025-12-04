@@ -100,3 +100,25 @@ const syllables = [
   "la", "po", "re", "gi", "ta", "na", "si", "co", "lu", "za"
 ]; 
 ```
+### Pseudo-word generation
+
+For each word:
+
+- Pick 2–3 random syllables
+- Concatenate them
+- Join all words with a normal space
+- In the renderer, spaces are displayed as `•` so the line matches keybr’s look
+
+Adjust the `syllables` array or word count to change the “language” or difficulty.
+
+---
+
+### Metrics
+
+Runtime metrics are derived from:
+
+- `correctCount`
+- `errorCount`
+- `totalTyped`
+- `startTime`
+---
