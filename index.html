@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Typing Trainer – Keybr Style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- METRICS BLOCK (top, like keybr) -->
+  <section class="metrics-block">
+    <div class="metrics-row">
+      <span class="metrics-label">Metrics:</span>
+      <span>Speed:
+        <span id="speedValue" class="metrics-value">0 wpm</span>
+        <span id="speedDelta" class="metrics-delta"></span>
+      </span>
+      <span>Accuracy:
+        <span id="accuracyValue" class="metrics-value">0%</span>
+        <span id="accuracyDelta" class="metrics-delta"></span>
+      </span>
+      <span>Score:
+        <span id="scoreValue" class="metrics-value">0</span>
+        <span id="scoreDelta" class="metrics-delta"></span>
+      </span>
+    </div>
+
+    <div class="metrics-row">
+      <span class="metrics-label">All keys:</span>
+      <div id="allKeysRow" class="keys-strip"></div>
+    </div>
+
+    <div class="metrics-row">
+      <span class="metrics-label">Current key:</span>
+      <span id="currentKeyBox" class="current-key-box">–</span>
+      <span class="inline-stat">Last speed:
+        <span id="lastKeySpeed" class="metrics-value">–</span>
+      </span>
+      <span class="inline-stat">Top speed:
+        <span id="topKeySpeed" class="metrics-value">–</span>
+      </span>
+      <span class="inline-stat">Learning rate:
+        <span id="learningRate" class="metrics-value">0 wpm/lesson</span>
+      </span>
+    </div>
+
+    <div class="metrics-row">
+      <span class="metrics-label">Accuracy:</span>
+      <span id="accuracySummary">
+        Start typing to see accuracy statistics.
+      </span>
+    </div>
+
+    <div class="metrics-row">
+      <span class="metrics-label">Daily goal:</span>
+      <div class="goal-bar">
+        <div id="goalBarInner" class="goal-bar-inner"></div>
+      </div>
+      <span id="goalText" class="goal-text">0% / 30 minutes</span>
+    </div>
+  </section>
+
+  <!-- MAIN TYPING AREA -->
+  <main class="main">
+    <section class="text-container" id="textContainer">
+      <div id="textDisplay" class="text-line"></div>
+    </section>
+  </main>
+
+  <!-- KEYBOARD HEATMAP -->
+  <section class="keyboard-wrapper">
+    <div class="keyboard-row">
+      <div class="kb-key" data-key="`">~</div>
+      <div class="kb-key" data-key="1">1</div>
+      <div class="kb-key" data-key="2">2</div>
+      <div class="kb-key" data-key="3">3</div>
+      <div class="kb-key" data-key="4">4</div>
+      <div class="kb-key" data-key="5">5</div>
+      <div class="kb-key" data-key="6">6</div>
+      <div class="kb-key" data-key="7">7</div>
+      <div class="kb-key" data-key="8">8</div>
+      <div class="kb-key" data-key="9">9</div>
+      <div class="kb-key" data-key="0">0</div>
+      <div class="kb-key wide" data-key="-">–</div>
+      <div class="kb-key wide" data-key="=">=</div>
+      <div class="kb-key wide">Backspace</div>
+    </div>
+    <div class="keyboard-row">
+      <div class="kb-key wide">Tab</div>
+      <div class="kb-key" data-key="q">Q</div>
+      <div class="kb-key" data-key="w">W</div>
+      <div class="kb-key" data-key="e">E</div>
+      <div class="kb-key" data-key="r">R</div>
+      <div class="kb-key" data-key="t">T</div>
+      <div class="kb-key" data-key="y">Y</div>
+      <div class="kb-key" data-key="u">U</div>
+      <div class="kb-key" data-key="i">I</div>
+      <div class="kb-key" data-key="o">O</div>
+      <div class="kb-key" data-key="p">P</div>
+      <div class="kb-key" data-key="[">[</div>
+      <div class="kb-key" data-key="]">]</div>
+      <div class="kb-key" data-key="\\">\</div>
+    </div>
+    <div class="keyboard-row">
+      <div class="kb-key wide">Caps</div>
+      <div class="kb-key" data-key="a">A</div>
+      <div class="kb-key" data-key="s">S</div>
+      <div class="kb-key" data-key="d">D</div>
+      <div class="kb-key" data-key="f">F</div>
+      <div class="kb-key" data-key="g">G</div>
+      <div class="kb-key" data-key="h">H</div>
+      <div class="kb-key" data-key="j">J</div>
+      <div class="kb-key" data-key="k">K</div>
+      <div class="kb-key" data-key="l">L</div>
+      <div class="kb-key" data-key=";">;</div>
+      <div class="kb-key" data-key="'">'</div>
+      <div class="kb-key wide">Enter</div>
+    </div>
+    <div class="keyboard-row">
+      <div class="kb-key extra-wide">Shift</div>
+      <div class="kb-key" data-key="z">Z</div>
+      <div class="kb-key" data-key="x">X</div>
+      <div class="kb-key" data-key="c">C</div>
+      <div class="kb-key" data-key="v">V</div>
+      <div class="kb-key" data-key="b">B</div>
+      <div class="kb-key" data-key="n">N</div>
+      <div class="kb-key" data-key="m">M</div>
+      <div class="kb-key" data-key=",">,</div>
+      <div class="kb-key" data-key=".">.</div>
+      <div class="kb-key" data-key="/">/</div>
+      <div class="kb-key extra-wide">Shift</div>
+    </div>
+    <div class="keyboard-row">
+      <div class="kb-key spacebar" data-key=" ">Space</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-left">
+      <button id="restartBtn" class="btn">Restart lesson</button>
+      <button id="newTextBtn" class="btn btn-ghost">New lesson</button>
+    </div>
+    <div class="footer-right">
+      <span class="hint">
+        Start typing to begin • Backspace fixes mistakes • Non-printable keys are ignored
+      </span>
+    </div>
+  </footer>
+
+  <!-- Hidden input for mobile -->
+  <input id="hiddenInput" autocomplete="off" autocorrect="off"
+         autocapitalize="off" spellcheck="false" />
+
+  <script src="script.js"></script>
+</body>
+</html>
 
