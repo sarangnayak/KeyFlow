@@ -90,8 +90,8 @@ Project structure
 - Lesson results, learning rate
 - Daily goal persistence via `localStorage`
 ---
-## Implementation details
-# Pseudo-word generation
+# Implementation details
+## Pseudo-word generation
 
 Words are generated from a small set of syllables:
 ```
