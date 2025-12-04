@@ -131,8 +131,8 @@ const words = correctCount / 5;
 const minutes = elapsedSeconds / 60;
 const wpm = Math.round(words / minutes);
 ```
-##Score calculation
-###Score is a simple combination of WPM and accuracy:
+#Score calculation
+##Score is a simple combination of WPM and accuracy:
 ```
 js
 Copy code
