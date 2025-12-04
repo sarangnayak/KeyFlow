@@ -122,3 +122,19 @@ Runtime metrics are derived from:
 - `totalTyped`
 - `startTime`
 ---
+### WPM calculation
+
+WPM uses the standard “5 characters per word” formula:
+
+```js
+const words = correctCount / 5;
+const minutes = elapsedSeconds / 60;
+const wpm = Math.round(words / minutes);
+```
+##Score calculation
+###Score is a simple combination of WPM and accuracy:
+```
+js
+Copy code
+const score = Math.round(wpm * (accuracy / 100));
+```
