@@ -63,3 +63,11 @@ python -m http.server 8000
 # then visit http://localhost:8000
 
 No additional setup is required.
+---
+Project structure
+```
+├── index.html   # main page, layout + markup
+├── styles.css   # keybr-style dark theme + keyboard + metrics
+└── script.js    # typing logic, metrics, heatmap, daily goal
+```
+---
