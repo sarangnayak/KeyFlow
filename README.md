@@ -71,3 +71,34 @@ Project structure
 └── script.js    # typing logic, metrics, heatmap, daily goal
 ```
 ---
+index.html
+
+Top metrics block (speed, accuracy, score, current key, daily goal)
+
+Typing line
+
+On-screen keyboard
+
+Footer controls (restart, new lesson)
+
+styles.css
+
+Keybr-like dark palette
+
+Layout for metrics and typing area
+
+Keyboard tiles and heatmap colors
+
+Caret animation and current-word underline
+
+script.js
+
+Pseudo-word generator
+
+Typing state machine
+
+Per-key stats and heatmap
+
+Lesson results, learning rate
+
+Daily goal persistence via `localStorage`
