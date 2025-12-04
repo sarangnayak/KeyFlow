@@ -1,1 +1,382 @@
+/* ===== ROOT ===== */
+:root {
+  --bg: #222325;
+  --bg-soft: #262729;
+  --bg-keyboard: #1c1d1f;
+
+  --text-main: #f5f5f5;
+  --text-muted: #9d9ea3;
+
+  --correct: #c8f7c5;
+  --incorrect: #ff9b9b;
+  --caret: #4ea1ff;
+
+  --heat-good: #3f7f4a;
+  --heat-mid: #a88933;
+  --heat-bad: #844040;
+}
+
+/* ===== RESET ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== METRICS BLOCK ===== */
+
+.metrics-block {
+  width: 100%;
+  max-width: 1100px;
+  margin: 26px auto 18px;
+  color: var(--text-main);
+  font-size: 13px;
+}
+
+.metrics-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.metrics-label {
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+.metrics-value {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.metrics-delta {
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+.metrics-delta.positive {
+  color: #6dd96d;
+}
+
+.metrics-delta.negative {
+  color: #ff8080;
+}
+
+/* All keys strip */
+
+.keys-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.key-badge {
+  min-width: 20px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 11px;
+  background: #34363a;
+  color: var(--text-main);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+}
+
+/* Current key box */
+
+.current-key-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 3px;
+  background: #2e3135;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  margin-right: 4px;
+}
+
+.inline-stat {
+  margin-left: 10px;
+}
+
+/* Goal bar */
+
+.goal-bar {
+  position: relative;
+  width: 240px;
+  height: 8px;
+  border-radius: 999px;
+  background: #2b2d30;
+  overflow: hidden;
+  margin-right: 8px;
+}
+
+.goal-bar-inner {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #5bd679, #f6d36b);
+  transition: width 0.2s ease-out;
+}
+
+.goal-text {
+  color: var(--text-muted);
+}
+
+/* ===== MAIN TYPING AREA ===== */
+
+.main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.text-container {
+  max-width: 1100px;
+  width: 90%;
+  min-height: 190px;
+  display: flex;
+  align-items: center;
+}
+
+.text-line {
+  font-size: clamp(26px, 3.2vw, 30px);
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  color: #b5b6ba;
+  user-select: none;
+}
+
+/* Characters */
+
+.char {
+  position: relative;
+  padding: 1px 1px;
+  transition: color 0.08s ease-out, background 0.08s ease-out;
+}
+
+.char.correct {
+  color: var(--correct);
+}
+
+.char.incorrect {
+  color: var(--incorrect);
+  background: rgba(160, 48, 48, 0.35);
+  border-radius: 3px;
+}
+
+/* Dot separator (space) */
+
+.char.space {
+  padding: 0 6px;
+  opacity: 0.35;
+}
+
+/* Caret + current char */
+
+.char.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  bottom: -4px;
+  width: 2px;
+  height: 1.4em;
+  background: var(--caret);
+  animation: caret-blink 1s steps(2, start) infinite;
+}
+
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Current word underline */
+
+.char.current-word {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(255, 255, 255, 0.45);
+}
+
+/* ===== KEYBOARD ===== */
+
+.keyboard-wrapper {
+  width: 100%;
+  max-width: 900px;
+  background: var(--bg-keyboard);
+  border-radius: 10px;
+  padding: 16px 18px 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.kb-key {
+  flex: 0 0 36px;
+  height: 38px;
+  border-radius: 4px;
+  background: #3a3b3f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--text-main);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.kb-key.wide {
+  flex-basis: 54px;
+}
+
+.kb-key.extra-wide {
+  flex-basis: 70px;
+}
+
+.kb-key.spacebar {
+  flex-basis: 360px;
+}
+
+/* keyboard heat colors */
+
+.kb-key.good {
+  background: var(--heat-good);
+}
+
+.kb-key.mid {
+  background: var(--heat-mid);
+}
+
+.kb-key.bad {
+  background: var(--heat-bad);
+}
+
+/* current key highlight (blue ring) */
+
+.kb-key.active {
+  box-shadow:
+    0 0 0 3px rgba(80, 156, 255, 0.9),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.9);
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 16px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.footer-left {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--bg-soft);
+  color: var(--text-main);
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.12s ease-out, transform 0.08s ease-out;
+}
+
+.btn:hover {
+  background: #303237;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-ghost {
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  background: #2a2b2f;
+}
+
+.hint {
+  opacity: 0.8;
+}
+
+/* Hidden input for mobile */
+#hiddenInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 800px) {
+  .metrics-block {
+    padding-inline: 10px;
+  }
+
+  .metrics-row {
+    align-items: flex-start;
+  }
+
+  .main {
+    margin-top: 8px;
+  }
+
+  .text-container {
+    width: 94%;
+  }
+
+  .keyboard-wrapper {
+    transform: scale(0.9);
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
 
