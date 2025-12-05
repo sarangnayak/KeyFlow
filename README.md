@@ -139,3 +139,25 @@ js
 Copy code
 const score = Math.round(wpm * (accuracy / 100));
 ```
+### Per-key stats and heatmap
+
+Each key is tracked inside `keyStats`:
+
+```js
+const keyStats = {
+  a: { presses: 0, errors: 0 },
+  // ...
+};
+```
+---
+Heatmap colors are derived from per-key accuracy:
+```
+accuracy = 1 - errors / presses;
+```
+Accuracy bands:
+
+-> 95% → green
+-> 80% → yellow
+-otherwise → red
+-Both the on-screen keyboard tiles and the “All keys” strip use this accuracy
+-to display their color state.
