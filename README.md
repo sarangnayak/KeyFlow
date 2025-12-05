@@ -154,10 +154,10 @@ Heatmap colors are derived from per-key accuracy:
 ```
 accuracy = 1 - errors / presses;
 ```
-Accuracy bands:
+## Accuracy bands:
 
--> 95% → green
--> 80% → yellow
--otherwise → red
--Both the on-screen keyboard tiles and the “All keys” strip use this accuracy
--to display their color state.
+` > 95% → green`
+` > 80% → yellow`
+- `otherwise → red`
+- `Both the on-screen keyboard tiles and the “All keys” strip use this accuracy`
+- `to display their color state.`
