@@ -1,4 +1,4 @@
-# Keybr-style Typing Trainer
+# KeyFlow
 
 A small, dependency-free typing trainer inspired by [keybr.com].  
 Built with plain HTML, CSS and JavaScript. No frameworks, no AI, no backend.
