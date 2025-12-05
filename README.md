@@ -196,12 +196,12 @@ Quick places to tweak:
 
 ## Roadmap / Ideas
 
-Potential future improvements:
+Possible future enhancements:
 
 - Support for multiple keyboard layouts (QWERTY / AZERTY / Colemak)
 - Adjustable lesson length and difficulty levels
-- Optional sound feedback on errors
-- Per-session history and charts (client-side only)
+- Optional sound feedback for errors
+- Per-session history and progress charts (client-side only)
 - Export/import user settings and statistics
 
 ---
@@ -215,5 +215,9 @@ Guidelines:
 - No build step or bundler  
 - No external runtime dependencies  
 - Keep the UI simple and close to the keybr style  
-```
 
+---
+
+## License
+
+MIT License. See `LICENSE` for details.
