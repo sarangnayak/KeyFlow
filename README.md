@@ -161,3 +161,16 @@ accuracy = 1 - errors / presses;
 - `otherwise → red`
 - `Both the on-screen keyboard tiles and the “All keys” strip use this accuracy`
 - `to display their color state.`
+---
+## Daily goal
+
+Daily progress is stored under a date-based key:
+```
+const key = `tt_daily_${YYYY}-${M}-${D}`;
+localStorage.setItem(key, totalSeconds);
+```
+
+Configuration:
+```
+const DAILY_GOAL_MINUTES = 30;
+```
