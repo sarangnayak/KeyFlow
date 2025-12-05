@@ -174,3 +174,46 @@ Configuration:
 ```
 const DAILY_GOAL_MINUTES = 30;
 ```
+Here is the exact block rewritten with **proper Markdown bullet points and section formatting**, ready to paste into your README:
+---
+## Customisation
+
+Quick places to tweak:
+
+- **Lesson length**  
+  Change the argument passed to `generatePseudoWords(wordCount)`.
+
+- **Color scheme**  
+  Edit the CSS custom properties inside `:root` in `styles.css`.
+
+- **Syllable set / language feel**  
+  Modify the `syllables` array in `script.js`.
+
+- **Daily goal**  
+  Update `DAILY_GOAL_MINUTES` in `script.js`.
+
+---
+
+## Roadmap / Ideas
+
+Potential future improvements:
+
+- Support for multiple keyboard layouts (QWERTY / AZERTY / Colemak)
+- Adjustable lesson length and difficulty levels
+- Optional sound feedback on errors
+- Per-session history and charts (client-side only)
+- Export/import user settings and statistics
+
+---
+
+## Contributing
+
+Issues and pull requests are welcome.
+
+Guidelines:
+
+- No build step or bundler  
+- No external runtime dependencies  
+- Keep the UI simple and close to the keybr style  
+```
+
